@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 
@@ -46,6 +47,24 @@ public class MainActivity extends  AppCompatActivity {    //Action
         gridView.setAdapter(new ArrayAdapter<String>(this, R.layout.item, R.id.textView, data));
       //  gridView.setNumColumns(5);
         gridView.setNumColumns(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? 5 : 3);
+
+        Button buttonDialler  = (Button) findViewById(R.id.buttonDialer);
+        buttonDialler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(Intent.ACTION_DIAL), 0);
+            }
+        });
+
+        Button buttonSMS = (Button) findViewById(R.id.buttonSMS);
+        buttonSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+                smsIntent.setType("vnd.android-dir/mms-sms");
+                startActivity(smsIntent );
+            }
+        });
     }
 
     @Override
@@ -65,10 +84,16 @@ public class MainActivity extends  AppCompatActivity {    //Action
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
 
+            startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+            return true;
+        }
+
+        if (id == R.id.second_activity) {
             Intent intent = new Intent(MainActivity.this, SecondActivity.class );
             startActivity(intent);
             return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }

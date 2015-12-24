@@ -28,8 +28,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button"
+            android:text="Dialer"
+            android:id="@+id/buttonDialer"
             android:layout_weight="0.35" />
 
         <Button
@@ -42,8 +42,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button3"
+            android:text="Send SMS"
+            android:id="@+id/buttonSMS"
             android:layout_weight="0.37" />
     </LinearLayout>
 
