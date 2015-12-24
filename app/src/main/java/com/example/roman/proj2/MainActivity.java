@@ -3,6 +3,7 @@ package com.example.roman.proj2;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.DataSetObserver;
 import android.support.v7.app.ActionBarActivity;
@@ -18,17 +19,17 @@ import android.widget.ListAdapter;
 
 
 public class MainActivity extends  AppCompatActivity {    //Action
-    String [] data  =  {"Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app" , "Some app", "Some app", "Some app"};
+    String [] data  =  {"Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app" , "Some app", "Some app", "Some app", "Some app", "Some app"};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_with_fragment);
 
-   //     Fragment f1 =  MyFragment.getInstance("TEST_VALUE1");
-   //     Fragment f2 =  MyFragment.getInstance("TEST_VALUE2");
-   //     Fragment f3 =  MyFragment.getInstance("TEST_VALUE2");
+   //     Fragment f1 =  FragmentGrid.getInstance("TEST_VALUE1");
+   //     Fragment f2 =  FragmentGrid.getInstance("TEST_VALUE2");
+   //     Fragment f3 =  FragmentGrid.getInstance("TEST_VALUE2");
 
 
 
@@ -40,7 +41,7 @@ public class MainActivity extends  AppCompatActivity {    //Action
 
 
 
-        GridView gridView = (GridView) findViewById(R.id.gridView);
+        GridView gridView = (GridView) findViewById(R.id.gridView2);
 
         gridView.setAdapter(new ArrayAdapter<String>(this, R.layout.item, R.id.textView, data));
       //  gridView.setNumColumns(5);
@@ -63,6 +64,9 @@ public class MainActivity extends  AppCompatActivity {    //Action
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class );
+            startActivity(intent);
             return true;
         }
 

@@ -12,25 +12,25 @@ import android.widget.TextView;
 /**
  * Created by roman on 22.12.2015.
  */
-public class MyFragment extends Fragment {
+public class FragmentGrid extends Fragment {
 
     String str;
 
-    public static Fragment getInstance(String str) {
-        Fragment f  = new MyFragment();
+   /* public static Fragment getInstance(String str) {
+        Fragment f  = new FragmentGrid();
         Bundle bundle =  new Bundle();
         bundle.putString("key", str);
         f.setArguments(bundle);
 
         return f;
-    }
+    }*/
 
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        Bundle b  = getArguments();
-        str =  b.getString("key");
+    //    Bundle b  = getArguments();
+     //   str =  b.getString("key");
     }
     @Override
     public void  onAttach(Context context){
@@ -40,9 +40,12 @@ public class MyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState){
-        TextView textView = new TextView(getActivity());
-        textView.setText("1234");
+    //    TextView textView = new TextView(getActivity());
+     //   textView.setText("1234");
+        View rootView =
+                inflater.inflate(R.layout.fragment_grid, container, false);
+        return rootView;
 
-        return  textView;
+        //return  textView;
     }
 }
