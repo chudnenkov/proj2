@@ -11,18 +11,15 @@ import android.widget.GridView;
  */
 public class SecondActivity extends AppCompatActivity  {
 
-    String [] data  =  {"Some app1", "Some app1", "Some app1", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app", "Some app" , "Some app", "Some app", "Some app", "Some app", "Some app"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_with_fragment);
+        setContentView(R.layout.activity_second);
 
         GridView gridView = (GridView) findViewById(R.id.gridView2);
-
-        gridView.setAdapter(new ArrayAdapter<String>(this, R.layout.item, R.id.textView, data));
-        //  gridView.setNumColumns(5);
+        gridView.setAdapter(MainActivity.customAdapter);
         gridView.setNumColumns(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? 5 : 3);
-
 
     }
 
